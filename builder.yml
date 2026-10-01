@@ -1,0 +1,15 @@
+name: Builder CodeQL configuration
+
+queries:
+  # Preserve Extended coverage here so repository default setup does not need to
+  # override this list.
+  - uses: security-extended
+
+packs:
+  actions:
+    # Enforce pinning except the approved Builder deployment workflow.
+    - holidayextras/builder-actions-queries@0.0.1
+
+query-filters:
+  - exclude:
+      id: actions/unpinned-tag
